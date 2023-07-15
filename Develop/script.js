@@ -1,6 +1,79 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+// DOM Elements
+// var currentDateEl = document.getElementById("currentDay");
+
+// TODO: Add code to display the current date in the header of the page.
+function myDate() {
+  var a = new Date();
+  var weekdays = new Array(7);
+  weekdays[0] = "Sunday";
+  weekdays[1] = "Monday";
+  weekdays[2] = "Tuesday";
+  weekdays[3] = "Wednesday";
+  weekdays[4] = "Thursday";
+  weekdays[5] = "Friday";
+  weekdays[6] = "Saturday";
+  var r = weekdays[a.getDay()];
+
+  document.getElementById("currentDay").innerHTML = r;
+
+  var b = new Date();
+  var months = new Array(12);
+  months[0] = "January";
+  months[1] = "February";
+  months[2] = "March";
+  months[3] = "April";
+  months[4] = "May";
+  months[5] = "June";
+  months[6] = "July";
+  months[7] = "August";
+  months[8] = "September";
+  months[9] = "October";
+  months[10] = "November";
+  months[11] = "December";
+  var s = months[b.getMonth()];
+
+  document.getElementById("currentMonth").innerHTML = s;
+
+  var c = new Date();
+  var days = new Array(30);
+  days[1] = "1st";
+  days[2] = "2nd";
+  days[3] = "3rd";
+  days[4] = "4th";
+  days[5] = "5th";
+  days[6] = "6th";
+  days[7] = "7th";
+  days[8] = "8th";
+  days[9] = "9th";
+  days[10] = "10th";
+  days[11] = "11th";
+  days[12] = "12th";
+  days[13] = "13th";
+  days[14] = "14th";
+  days[15] = "15th";
+  days[16] = "16th";
+  days[17] = "17th";
+  days[18] = "18th";
+  days[19] = "19th";
+  days[20] = "20th";
+  days[21] = "21st";
+  days[22] = "22nd";
+  days[23] = "23rd";
+  days[24] = "24th";
+  days[25] = "25th";
+  days[26] = "26th";
+  days[27] = "27th";
+  days[28] = "28th";
+  days[29] = "29th";
+  days[30] = "30th";
+  days[31] = "31st";
+  var t = days[c.Date()];
+
+  document.getElementById("currentDate").innerHTML = t;
+}
+
+myDate();
+
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -19,5 +92,4 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
 });
