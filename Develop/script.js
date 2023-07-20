@@ -1,6 +1,3 @@
-// DOM Elements
-// var currentDateEl = document.getElementById("currentDay");
-
 // TODO: Add code to display the current date in the header of the page.
 function myDate() {
   var a = new Date();
@@ -35,7 +32,7 @@ function myDate() {
   document.getElementById("currentMonth").innerHTML = s;
 
   var c = new Date();
-  var days = new Array(30);
+  var days = new Array(31);
   days[1] = "1st";
   days[2] = "2nd";
   days[3] = "3rd";
@@ -67,7 +64,7 @@ function myDate() {
   days[29] = "29th";
   days[30] = "30th";
   days[31] = "31st";
-  var t = days[c.Date()];
+  var t = days[c.getDate()];
 
   document.getElementById("currentDate").innerHTML = t;
 }
@@ -75,6 +72,35 @@ function myDate() {
 myDate();
 
 $(function () {
+
+$(".saveBtn").on("click", function() {
+  var description = $(this).siblings(".description").val()
+  console.log(description);
+  var time = $(this).parent().attr("id")
+  console.log(time)
+localStorage.setItem(time, description);
+});
+for(var i = 9; i <= 17; i++){
+  $(`#hour-${i} .description`).val(localStorage.getItem(`hour-${i}`))
+}
+
+function updateHourColor (){
+var now = dayjs().hour()
+$(".time-block").each(function(){
+  var htmlHour = $(this).attr("id").split("-")[1]
+  console.log(htmlHour, now);
+  if(htmlHour < now){
+$(this).addClass("past");
+  } else if(htmlHour === now){
+    $(this).addClass("present")
+  } else{
+    $(this).addClass("future")
+  }
+})
+}
+
+updateHourColor();
+setInterval(updateHourColor, 15000);
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
