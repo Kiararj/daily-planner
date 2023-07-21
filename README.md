@@ -1,5 +1,9 @@
 # Daily Planner
 
+## Deploy Link
+
+https://kiararj.github.io/daily-planner/
+
 ## Screenshot
 
 ![Alt text](/Assets/screenshot.png "Screenshot of website")
